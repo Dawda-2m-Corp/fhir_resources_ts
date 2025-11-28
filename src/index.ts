@@ -19,9 +19,9 @@ export { FhirResource, DomainResource } from './r4/baseResource';
 
 // Data types
 export { Meta } from './r4/meta';
-export { Period } from './r4/data_types/period';
-export { Coding } from './r4/data_types/coding';
-export { CodeableConcept } from './r4/data_types/codeableConcept';
+export { Period } from './r4/dataTypes/period';
+export { Coding } from './r4/dataTypes/coding';
+export { CodeableConcept } from './r4/dataTypes/codeableConcept';
 export { Identifier } from './r4/identifier';
 export { Reference } from './r4/reference';
 

@@ -1,4 +1,4 @@
-
+default: tests
 
 tests:
-	echo "testing"
+	npm run test

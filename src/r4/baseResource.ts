@@ -1,12 +1,7 @@
 import { z } from 'zod';
 import { FhirResourceType, Extension } from '../types/primitives';
-import { elementSchema, fhirId, fhirUri, fhirCode } from '../validation/schemas';
 import { Meta } from './meta';
 
-/**
- * Base FHIR Resource class following FHIR R4 specification
- * Equivalent to FHIRAbstractModel in fhir.resources
- */
 export abstract class FhirResource {
   abstract resourceType: FhirResourceType;
   id?: string;
@@ -21,16 +16,10 @@ export abstract class FhirResource {
     if (data.language) this.language = data.language;
   }
 
-  /**
-   * Get the resource type
-   */
   getResourceType(): FhirResourceType {
     return this.resourceType;
   }
 
-  /**
-   * Validate the resource using Zod schema
-   */
   protected validateWithSchema(schema: z.ZodSchema): boolean {
     try {
       schema.parse(this.toJson());
@@ -43,16 +32,10 @@ export abstract class FhirResource {
     }
   }
 
-  /**
-   * Basic validation - override in subclasses
-   */
   validate(): boolean {
-    return true; // Override in subclasses
+    return true;
   }
 
-  /**
-   * Convert to JSON (like model_dump in Pydantic)
-   */
   toJson(): Record<string, any> {
     const result: Record<string, any> = {
       resourceType: this.resourceType,
@@ -66,18 +49,11 @@ export abstract class FhirResource {
     return result;
   }
 
-  /**
-   * Convert to JSON string (like model_dump_json in Pydantic)
-   */
   toJsonString(indent?: number): string {
     return JSON.stringify(this.toJson(), null, indent);
   }
 
-  // Static methods moved to individual resource classes to avoid inheritance conflicts
 
-  /**
-   * Basic XML serialization (simplified)
-   */
   toXml(): string {
     const json = this.toJson();
     return this.jsonToXml(json, this.resourceType);
@@ -112,9 +88,7 @@ export abstract class FhirResource {
   }
 }
 
-/**
- * Domain Resource base class for resources with text and extension support
- */
+
 export abstract class DomainResource extends FhirResource {
   text?: {
     status: 'generated' | 'extensions' | 'additional' | 'empty';

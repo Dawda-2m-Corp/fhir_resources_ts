@@ -2,15 +2,13 @@ import { z } from 'zod';
 import { DomainResource } from './baseResource';
 import { FhirCode, FhirString, FhirPositiveInt } from '../types/primitives';
 import { fhirCode, fhirString, fhirPositiveInt } from '../validation/schemas';
-import { CodeableConcept } from './data_types/codeableConcept';
-import { Period } from './data_types/period';
+import { CodeableConcept } from './dataTypes/codeableConcept';
+import { Period } from './dataTypes/period';
 import { Identifier } from './identifier';
 import { Reference } from './reference';
 import { Meta } from './meta';
 
-/**
- * Account Coverage - tracks the party responsible for an account
- */
+
 export class AccountCoverage {
   coverage: Reference;
   priority?: FhirPositiveInt;
@@ -44,9 +42,7 @@ export class AccountCoverage {
   }
 }
 
-/**
- * Account Guarantor - parties responsible for balancing the account
- */
+
 export class AccountGuarantor {
   party: Reference;
   onHold?: boolean;
@@ -85,10 +81,6 @@ export class AccountGuarantor {
   }
 }
 
-/**
- * FHIR Account Resource
- * A financial tool for tracking value accrued for a particular purpose
- */
 export class Account extends DomainResource {
   resourceType: 'Account' = 'Account';
   identifier?: Identifier[];
@@ -118,10 +110,8 @@ export class Account extends DomainResource {
   } & Partial<DomainResource>) {
     super(data);
 
-    // Required fields
     this.status = data.status;
 
-    // Optional fields
     this.identifier = data.identifier;
     this.type = data.type;
     this.name = data.name;
@@ -134,9 +124,7 @@ export class Account extends DomainResource {
     this.partOf = data.partOf;
   }
 
-  /**
-   * Validation schema for Account
-   */
+
   static get schema() {
     return z.object({
       resourceType: z.literal('Account'),
@@ -155,23 +143,17 @@ export class Account extends DomainResource {
     });
   }
 
-  /**
-   * Validate this Account instance
-   */
+
   validate(): boolean {
     return this.validateWithSchema(Account.schema);
   }
 
-  /**
-   * Convert to JSON
-   */
+
   toJson(): Record<string, any> {
     const result = super.toJson();
 
-    // Required fields
     result.status = this.status;
 
-    // Optional fields
     if (this.identifier !== undefined) {
       result.identifier = this.identifier.map(i => i.toJson());
     }
@@ -196,9 +178,7 @@ export class Account extends DomainResource {
     return result;
   }
 
-  /**
-   * Create Account from JSON
-   */
+
   static fromJson(json: Record<string, any>): Account {
     const account = new Account({
       status: json.status,
@@ -214,7 +194,6 @@ export class Account extends DomainResource {
       partOf: json.partOf ? Reference.fromJson(json.partOf) : undefined,
     });
 
-    // Copy base resource properties
     if (json.id) account.id = json.id;
     if (json.meta) account.meta = Meta.fromJson(json.meta);
     if (json.implicitRules) account.implicitRules = json.implicitRules;
@@ -226,9 +205,6 @@ export class Account extends DomainResource {
     return account;
   }
 
-  /**
-   * Create Account from JSON string
-   */
   static fromJsonString(jsonString: string): Account {
     const data = JSON.parse(jsonString);
     return Account.fromJson(data);

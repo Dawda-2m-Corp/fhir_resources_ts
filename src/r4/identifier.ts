@@ -1,8 +1,8 @@
 import { z } from 'zod';
 import { FhirCode, FhirUri, FhirString } from '../types/primitives';
 import { fhirCode, fhirUri, fhirString } from '../validation/schemas';
-import { CodeableConcept } from './data_types/codeableConcept';
-import { Period } from './data_types/period';
+import { CodeableConcept } from './dataTypes/codeableConcept';
+import { Period } from './dataTypes/period';
 import { Reference } from './reference';
 
 /**
