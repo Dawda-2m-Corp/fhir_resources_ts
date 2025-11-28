@@ -1,3 +1,5 @@
-import BaseResource from "./baseResource";
+import { DomainResource } from "./baseResource";
 
-class ActivityDefinition extends BaseResource {}
+export class ActivityDefinition extends DomainResource {
+    resourceType: 'ActivityDefinition' = 'ActivityDefinition';
+}

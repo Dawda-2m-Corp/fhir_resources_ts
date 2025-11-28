@@ -1,5 +1,5 @@
 import type { code, id, uri } from "./data_types";
-import Meta from "./meta";
+import { Meta } from "./meta";
 
 class Resource {
   meta?: Meta;
