@@ -6,7 +6,6 @@ export class Range {
     high?: Quantity;
 
     constructor(data: Range) {
-        this.low = data.low;
-        this.high = data.high;
+        Object.assign(this, data);
     }
 }

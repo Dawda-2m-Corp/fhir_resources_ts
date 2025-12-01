@@ -15,5 +15,6 @@ export class SampledData {
     constructor(data: SampledData) {
         this.origin = data.origin;
         this.period = data.period;
+        Object.assign(this, data);
     }
 }

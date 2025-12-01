@@ -22,10 +22,28 @@ export class TimingRepeat {
     timeOfDay?: FhirTime[];
     when?: FhirCode;
     offset?: FhirUnsignedInt;
+
+    constructor(data: TimingRepeat) {
+        Object.assign(this, data);
+    }
 }
 
-export class TIming {
+export class Timing {
     event?: FhirDateTime[];
     repeat?: TimingRepeat;
     code?: CodeableConcept;
+
+    constructor(data: Timing) {
+        Object.assign(this, data);
+    }
+
+    toJson(): Record<string, any> {
+        const result: Record<string, any> = {};
+
+        if (this.event !== undefined) result.event = this.event;
+        if (this.repeat !== undefined) result.repeat = this.repeat;
+        if (this.code !== undefined) result.code = this.code.toJson();
+
+        return result;
+    }
 }

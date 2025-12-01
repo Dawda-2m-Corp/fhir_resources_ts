@@ -25,7 +25,7 @@ export type FhirNull = null;
 export type FhirOid = t.TypeOf<typeof fhirOidRegexPatternType>;
 export type FhirId = t.TypeOf<typeof fhirIdRegexPatternType>;
 export type FhirBoolean = boolean;
-export type FhirString = t.TypeOf<typeof fhirStringRegexPatternType>;
+export type FhirString = String;
 export type FhirInteger = t.TypeOf<typeof fhirInterRegexPatternType>;
 export type FhirUnsignedInt = t.TypeOf<typeof fhirUnsignedIntRegexPatternType>;
 export type FhirPositiveInt = t.TypeOf<typeof fhirPositiveIntRegexPatternType>;
@@ -47,4 +47,10 @@ export type FhirCanonical = FhirUri;
 export type FhirResourceTypes = 'Patient'
     | 'Observation'
     | 'Practitioner'
-    | 'Encounter';
+    | 'Encounter'
+    | 'Organization'
+    | 'Condition'
+    | 'Procedure'
+    | 'Claim'
+    | 'ChargeItem'
+    | 'Contract'

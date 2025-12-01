@@ -16,5 +16,6 @@ export class Signature {
     constructor(data: Signature) {
         this.type = data.type;
         this.when = data.when;
+        Object.assign(this, data);
     }
 }

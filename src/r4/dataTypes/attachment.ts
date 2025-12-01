@@ -12,6 +12,6 @@ export class Attachment {
 
 
     constructor(data: Attachment) {
-        this.contentType = data.contentType;
+        Object.assign(this, data);
     }
 }

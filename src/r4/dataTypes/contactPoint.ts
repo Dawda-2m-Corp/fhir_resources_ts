@@ -10,10 +10,6 @@ export class ContactPoint {
     period?: Period;
 
     constructor(data: ContactPoint) {
-        this.system = data.system;
-        this.value = data.value;
-        this.use = data.use;
-        this.rank = data.rank;
-        this.period = data.period;
+        Object.assign(this, data);
     }
 }

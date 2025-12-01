@@ -5,4 +5,8 @@ import { ContactPoint } from './contactPoint';
 export class ContactDetail {
     name?: FhirString;
     telecome?: ContactPoint[];
+
+    constructor(data: ContactDetail) {
+        Object.assign(this, data);
+    }
 }

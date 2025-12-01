@@ -6,7 +6,6 @@ export class Ratio {
     denominator?: Quantity;
 
     constructor(data: Ratio) {
-        this.denominator = data.denominator;
-        this.numerator = data.numerator;
+        Object.assign(this, data);
     }
 }

@@ -1,60 +1,95 @@
-import { FhirBase64Binary, FhirBoolean, FhirCode, FhirDate, FhirDateTime, FhirUri } from "./dataTypes";
+import { FhirBase64Binary, FhirBoolean, FhirCode, FhirDate, FhirDateTime, FhirDecimal, FhirId, FhirInstant, FhirInteger, FhirMakeDown, FhirOid, FhirPositiveInt, FhirString, FhirTime, FhirUnsignedInt, FhirUri, FhirUrl, FhirUuid } from "./dataTypes";
+import { Address } from "./dataTypes/address";
+import { Age } from "./dataTypes/age";
+import { Annotation } from "./dataTypes/annotation";
+import { Attachment } from "./dataTypes/attachment";
+import { Availability } from "./dataTypes/availability";
+import { CodeableConcept } from "./dataTypes/codeableConcept";
+import { ContactDetail } from "./dataTypes/contactDetail";
+import { ContactPoint } from "./dataTypes/contactPoint";
+import { Contributor } from "./dataTypes/contributor";
+import { Count } from "./dataTypes/count";
+import { DataRequirement } from "./dataTypes/dataRequirement";
+import { Distance } from "./dataTypes/distance";
+import { Dosage } from "./dataTypes/dosage";
+import { Duration } from "./dataTypes/duration";
+import { Expression } from "./dataTypes/expression";
+import { ExtendedContactDetail } from "./dataTypes/extendedContactDetail";
+import { HumanName } from "./dataTypes/humanName";
+import { Meta } from "./dataTypes/meta";
+import { Money } from "./dataTypes/money";
+import { ParameterDefinition } from "./dataTypes/parameterDefinition";
+import { Period } from "./dataTypes/period";
+import { Quantity } from "./dataTypes/quantity";
+import { Range } from "./dataTypes/range";
+import { Ratio } from "./dataTypes/ratio";
+import { RelatedArtifact } from "./dataTypes/relatedArtifact";
+import { SampledData } from "./dataTypes/sampledData";
+import { Signature } from "./dataTypes/signature";
+import { Timing } from "./dataTypes/timing";
+import { TriggerDefinition } from "./dataTypes/triggerDefinition";
+import { UsageContext } from "./dataTypes/usageContext";
+import { Identifier } from "./identifier";
+import { Reference } from "./reference";
 
 
 export class Extension {
-    url: string;
-    valueBase64Binary?: FhirBase64Binary;
-    valueBoolean?: FhirBoolean;
-    valueCanonical?: FhirUri;
-    valueCode?: FhirCode;
-    valueDate?: FhirDate;
-    valueDateTime?: FhirDateTime;
-    valueDecimal: <decimal>
-  valueId : <id>
-    valueInstant : <instant>
-        valueInteger : <integer>
-            valueMarkdown : <markdown>
-                valueOid : <oid>
-                    valuePositiveInt : <positiveInt>
-                        valueString : <string>
-                            valueTime : <time>
-                                valueUnsignedInt : <unsignedInt>
-                                    valueUri : <uri>
-                                        valueUrl : <url>
-                                            valueUuid : <uuid>
-                                                valueAddress : { Address }
-valueAge: { Age }
-valueAnnotation: { Annotation }
-valueAttachment: { Attachment }
-valueCodeableConcept: { CodeableConcept }
-valueCoding: { Coding }
-valueContactPoint: { ContactPoint }
-valueCount: { Count }
-valueDistance: { Distance }
-valueDuration: { Duration }
-valueHumanName: { HumanName }
-valueIdentifier: { Identifier }
-valueMoney: { Money }
-valuePeriod: { Period }
-valueQuantity: { Quantity }
-valueRange: { Range }
-valueRatio: { Ratio }
-valueReference: { Reference }
-valueSampledData: { SampledData }
-valueSignature: { Signature }
-valueTiming: { Timing }
-valueContactDetail: { ContactDetail }
-valueContributor: { Contributor }
-valueDataRequirement: { DataRequirement }
-valueExpression: { Expression }
-valueParameterDefinition: { ParameterDefinition }
-valueRelatedArtifact: { RelatedArtifact }
-valueTriggerDefinition: { TriggerDefinition }
-valueUsageContext: { UsageContext }
-valueDosage: { Dosage }
-valueMeta: { Meta }
+  url: string;
+  valueBase64Binary?: FhirBase64Binary;
+  valueBoolean?: FhirBoolean;
+  valueCanonical?: FhirUri;
+  valueCode?: FhirCode;
+  valueDate?: FhirDate;
+  valueDateTime?: FhirDateTime;
+  valueDecimal?: FhirDecimal;
+  valueId?: FhirId;
+  valueInstant?: FhirInstant;
+  valueInteger?: FhirInteger;
+  valueMarkdown?: FhirMakeDown;
+  valueOid?: FhirOid;
+  valuePositiveInt?: FhirPositiveInt;
+  valueString?: FhirString;
+  valueTime?: FhirTime;
+  valueUnsignedInt?: FhirUnsignedInt;
+  valueUri?: FhirUri;
+  valueUrl?: FhirUrl;
+  valueUuid?: FhirUuid;
+  valueAddress?: Address;
+  valueAge?: Age;
+  valueAnnotation?: Annotation;
+  valueAttachment?: Attachment;
+  valueCodeableConcept?: CodeableConcept;
+  valueCoding?: FhirCode
+  valueContactPoint?: ContactPoint;
+  valueCount?: Count;
+  valueDistance?: Distance;
+  valueDuration?: Duration;
+  valueHumanName?: HumanName;
+  valueIdentifier?: Identifier;
+  valueMoney?: Money;
+  valuePeriod?: Period;
+  valueQuantity?: Quantity;
+  valueRange?: Range;
+  valueRatio?: Ratio;
+  valueReference?: Reference;
+  valueSampledData?: SampledData;
+  valueSignature?: Signature;
+  valueTiming?: Timing;
+  valueContactDetail?: ContactDetail;
+  valueContributor?: Contributor;
+  valueDataRequirement?: DataRequirement;
+  valueExpression?: Expression;
+  valueParameterDefinition?: ParameterDefinition;
+  valueRelatedArtifact?: RelatedArtifact;
+  valueTriggerDefinition?: TriggerDefinition;
+  valueUsageContext?: UsageContext;
+  valueAvailability?: Availability;
+  valueExtendedContactDetail?: ExtendedContactDetail;
+  valueDosage?: Dosage;
+  valueMeta?: Meta;
 
-constructor(data: Extension) {
+  constructor(data: Extension) {
     this.url = data.url;
-}
+    Object.assign(this, data);
+  }
 }

@@ -11,3 +11,11 @@ export const fhirRegexValidator = (pattern: RegExp, message: string) =>
         ),
         () => message
     )
+
+
+export function convertObjToJson(obj: any): Record<string, any> {
+
+    return {
+        ...obj,
+    };
+}

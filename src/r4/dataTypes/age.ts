@@ -8,9 +8,6 @@ export class Age {
     code?: string;
 
     constructor(data: Partial<Age> = {}) {
-        if (data.value !== undefined) this.value = data.value;
-        if (data.unit !== undefined) this.unit = data.unit;
-        if (data.system !== undefined) this.system = data.system;
-        if (data.code !== undefined) this.code = data.code;
+        Object.assign(this, data);
     }
 }

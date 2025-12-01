@@ -9,9 +9,21 @@ export class Annotation {
     text?: FhirMakeDown;
 
     constructor(data: Partial<Annotation> = {}) {
-        if (data.authorReference) this.authorReference = data.authorReference;
-        if (data.authorString) this.authorString = data.authorString;
-        if (data.time) this.time = data.time;
-        if (data.text) this.text = data.text;
+        Object.assign(this, data);
+    }
+
+    toJson(): Record<string, any> {
+        const result: Record<string, any> = {};
+
+        if (this.authorReference !== undefined) {
+            result.authorReference = typeof this.authorReference.toJson === 'function'
+                ? this.authorReference.toJson()
+                : this.authorReference;
+        }
+        if (this.authorString !== undefined) result.authorString = this.authorString;
+        if (this.time !== undefined) result.time = this.time;
+        if (this.text !== undefined) result.text = this.text;
+
+        return result;
     }
 }
