@@ -2,12 +2,12 @@ import { Identifier } from "../r4";
 import { Extension as ExtensionR4 } from "../r4/extensions";
 
 export class Extension extends ExtensionR4 {
-    identifier?: Identifier[];
+    identifier?: Identifier;
 
     constructor(data: Extension) {
         super(data);
         if (data.identifier) {
-            this.identifier = data.identifier.map(id => new Identifier(id));
+            this.identifier = new Identifier(data.identifier);
         }
     }
 
@@ -15,9 +15,7 @@ export class Extension extends ExtensionR4 {
         const result: Record<string, any> = super.toJson();
 
         if (this.identifier !== undefined) {
-            result.identifier = this.identifier.map(id =>
-                typeof id.toJson === 'function' ? id.toJson() : id
-            );
+            result.identifier = typeof this.identifier.toJson === 'function' ? this.identifier.toJson() : this.identifier;
         }
 
         return result;
