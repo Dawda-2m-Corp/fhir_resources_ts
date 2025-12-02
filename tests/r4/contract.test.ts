@@ -59,7 +59,7 @@ test('Contract resource can be created', () => {
         ]
     });
 
-    console.log('Contract JSON:', JSON.stringify(contract.toJson(), null, 2));
+    // console.log('Contract JSON:', JSON.stringify(contract.toJson(), null, 2));
 
     expect(contract.resourceType).toBe("Contract");
     expect(contract.id).toBe("example-contract");

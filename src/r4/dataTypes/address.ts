@@ -20,4 +20,14 @@ export class Address {
     constructor(data: Address) {
         Object.assign(this, data);
     }
+
+    toJson(): Record<string, any> {
+        return {
+            ...this,
+        }
+    }
+
+    toXml(): String {
+        return `<Address>${JSON.stringify(this)}</Address>`;
+    }
 }

@@ -26,4 +26,24 @@ export class Annotation {
 
         return result;
     }
+
+    toXml(): string {
+        let xml = `<Annotation>`;
+        if (this.authorReference !== undefined) {
+            xml += `<authorReference>`;
+            xml += this.authorReference.toXml();
+            xml += `</authorReference>`;
+        }
+        if (this.authorString !== undefined) {
+            xml += `<authorString value="${this.authorString}"/>`;
+        }
+        if (this.time !== undefined) {
+            xml += `<time value="${this.time}"/>`;
+        }
+        if (this.text !== undefined) {
+            xml += `<text value="${this.text}"/>`;
+        }
+        xml += `</Annotation>`;
+        return xml;
+    }
 }

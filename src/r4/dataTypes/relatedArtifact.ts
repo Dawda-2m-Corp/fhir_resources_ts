@@ -20,4 +20,14 @@ export class RelatedArtifact {
         this.type = data.type;
         Object.assign(this, data);
     }
+
+    toJson(): Record<string, any> {
+        return {
+            ...this,
+        };
+    }
+
+    toXml(): String {
+        return `<RelatedArtifact>${JSON.stringify(this)}</RelatedArtifact>`;
+    }
 }

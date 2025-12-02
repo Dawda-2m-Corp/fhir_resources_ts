@@ -5,7 +5,7 @@ export class Coding {
     system?: FhirUri;
     version?: String;
     code?: FhirCode;
-    diaply?: FhirString;
+    display?: FhirString;  // Fixed typo from diaply to display
     userSelected?: FhirBoolean;
 
     constructor(data: Partial<Coding>) {
@@ -18,7 +18,7 @@ export class Coding {
         if (this.system !== undefined) result.system = this.system;
         if (this.version !== undefined) result.version = this.version;
         if (this.code !== undefined) result.code = this.code;
-        if (this.diaply !== undefined) result.diaply = this.diaply;
+        if (this.display !== undefined) result.display = this.display;
         if (this.userSelected !== undefined) result.userSelected = this.userSelected;
 
         return result;
@@ -35,8 +35,8 @@ export class Coding {
         if (this.code !== undefined) {
             xml += `<code>${this.code}</code>`;
         }
-        if (this.diaply !== undefined) {
-            xml += `<diaply>${this.diaply}</diaply>`;
+        if (this.display !== undefined) {
+            xml += `<display>${this.display}</display>`;
         }
         if (this.userSelected !== undefined) {
             xml += `<userSelected>${this.userSelected}</userSelected>`;

@@ -8,6 +8,7 @@ export class Reference {
   reference?: FhirString;
   type?: FhirUri;
   identifier?: Identifier;
+  display?: FhirString;
 
   constructor(data: Partial<Reference> = {}) {
     Object.assign(this, data);
@@ -24,6 +25,7 @@ export class Reference {
         ? this.identifier.toJson()
         : this.identifier;
     }
+    if (this.display !== undefined) result.display = this.display;
 
     return result;
   }

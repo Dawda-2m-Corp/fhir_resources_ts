@@ -1,12 +1,22 @@
 import { FhirCode, FhirDecimal } from ".";
 
 
+export interface MoneyConstructorData {
+    value?: FhirDecimal | number;
+    currency?: FhirCode | string;
+}
+
 export class Money {
     value?: FhirDecimal;
     currency?: FhirCode;
 
-    constructor(data: Money) {
-        Object.assign(this, data);
+    constructor(data: MoneyConstructorData | Money) {
+        if (data.value !== undefined) {
+            this.value = data.value as any;
+        }
+        if (data.currency !== undefined) {
+            this.currency = data.currency as any;
+        }
     }
 
     toJson(): Record<string, any> {

@@ -1,4 +1,3 @@
-import { convertObjToJson } from "../utils";
 import { BaseFhirResource } from "./baseResource";
 import { FhirBoolean, FhirCode, FhirDate, FhirResourceTypes } from "./dataTypes";
 import { Address } from "./dataTypes/address";
@@ -10,7 +9,7 @@ import { Period } from "./dataTypes/period";
 import { Identifier } from "./identifier";
 import { Reference } from "./reference";
 
-interface PatientConstructorData extends Partial<Omit<Patient, 'name'>> {
+export interface PatientConstructorData extends Partial<Omit<Patient, 'name'>> {
     name?: (HumanName | {
         use?: FhirCode;
         text?: string;

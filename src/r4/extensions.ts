@@ -92,4 +92,98 @@ export class Extension {
     this.url = data.url;
     Object.assign(this, data);
   }
+
+  toJson(): Record<string, any> {
+    const result: Record<string, any> = { url: this.url };
+
+    if (this.valueBase64Binary !== undefined) result.valueBase64Binary = this.valueBase64Binary;
+    if (this.valueBoolean !== undefined) result.valueBoolean = this.valueBoolean;
+    if (this.valueCanonical !== undefined) result.valueCanonical = this.valueCanonical;
+    if (this.valueCode !== undefined) result.valueCode = this.valueCode;
+    if (this.valueDate !== undefined) result.valueDate = this.valueDate;
+    if (this.valueDateTime !== undefined) result.valueDateTime = this.valueDateTime;
+    if (this.valueDecimal !== undefined) result.valueDecimal = this.valueDecimal;
+    if (this.valueId !== undefined) result.valueId = this.valueId;
+    if (this.valueInstant !== undefined) result.valueInstant = this.valueInstant;
+    if (this.valueInteger !== undefined) result.valueInteger = this.valueInteger;
+    if (this.valueMarkdown !== undefined) result.valueMarkdown = this.valueMarkdown;
+    if (this.valueOid !== undefined) result.valueOid = this.valueOid;
+    if (this.valuePositiveInt !== undefined) result.valuePositiveInt = this.valuePositiveInt;
+    if (this.valueString !== undefined) result.valueString = this.valueString;
+    if (this.valueTime !== undefined) result.valueTime = this.valueTime;
+    if (this.valueUnsignedInt !== undefined) result.valueUnsignedInt = this.valueUnsignedInt;
+    if (this.valueUri !== undefined) result.valueUri = this.valueUri;
+    if (this.valueUrl !== undefined) result.valueUrl = this.valueUrl;
+    if (this.valueUuid !== undefined) result.valueUuid = this.valueUuid;
+    // Add other value types as needed
+
+    return result;
+  }
+
+  toXml(): string {
+    let xml = `<extension>`;
+    xml += `<url value="${this.url}"/>`;
+
+    if (this.valueBase64Binary !== undefined) {
+      xml += `<valueBase64Binary value="${this.valueBase64Binary}"/>`;
+    }
+    if (this.valueBoolean !== undefined) {
+      xml += `<valueBoolean value="${this.valueBoolean}"/>`;
+    }
+    if (this.valueCanonical !== undefined) {
+      xml += `<valueCanonical value="${this.valueCanonical}"/>`;
+    }
+    if (this.valueCode !== undefined) {
+      xml += `<valueCode value="${this.valueCode}"/>`;
+    }
+    if (this.valueDate !== undefined) {
+      xml += `<valueDate value="${this.valueDate}"/>`;
+    }
+    if (this.valueDateTime !== undefined) {
+      xml += `<valueDateTime value="${this.valueDateTime}"/>`;
+    }
+    if (this.valueDecimal !== undefined) {
+      xml += `<valueDecimal value="${this.valueDecimal}"/>`;
+    }
+    if (this.valueId !== undefined) {
+      xml += `<valueId value="${this.valueId}"/>`;
+    }
+    if (this.valueInstant !== undefined) {
+      xml += `<valueInstant value="${this.valueInstant}"/>`;
+    }
+    if (this.valueInteger !== undefined) {
+      xml += `<valueInteger value="${this.valueInteger}"/>`;
+    }
+    if (this.valueMarkdown !== undefined) {
+      xml += `<valueMarkdown value="${this.valueMarkdown}"/>`;
+    }
+    if (this.valueOid !== undefined) {
+      xml += `<valueOid value="${this.valueOid}"/>`;
+    }
+    if (this.valuePositiveInt !== undefined) {
+      xml += `<valuePositiveInt value="${this.valuePositiveInt}"/>`;
+    }
+    if (this.valueString !== undefined) {
+      xml += `<valueString value="${this.valueString}"/>`;
+    }
+    if (this.valueTime !== undefined) {
+      xml += `<valueTime value="${this.valueTime}"/>`;
+    }
+    if (this.valueUnsignedInt !== undefined) {
+      xml += `<valueUnsignedInt value="${this.valueUnsignedInt}"/>`;
+    }
+    if (this.valueUri !== undefined) {
+      xml += `<valueUri value="${this.valueUri}"/>`;
+    }
+    if (this.valueUrl !== undefined) {
+      xml += `<valueUrl value="${this.valueUrl}"/>`;
+    }
+    if (this.valueUuid !== undefined) {
+      xml += `<valueUuid value="${this.valueUuid}"/>`;
+    }
+    // Add other value types as needed
+
+    xml += `</extension>`;
+    return xml;
+  }
 }

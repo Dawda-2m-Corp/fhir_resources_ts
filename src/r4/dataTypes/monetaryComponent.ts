@@ -11,7 +11,15 @@ export class MonetaryComponent {
 
     constructor(data: Partial<MonetaryComponent>) {
         this.type = data.type!;
-        Object.assign(this, data);
+        if (data.code !== undefined) {
+            this.code = data.code instanceof CodeableConcept ? data.code : new CodeableConcept(data.code as any);
+        }
+        if (data.factor !== undefined) {
+            this.factor = data.factor;
+        }
+        if (data.amount !== undefined) {
+            this.amount = data.amount instanceof Money ? data.amount : new Money(data.amount as any);
+        }
     }
 
     toJson(): Record<string, any> {

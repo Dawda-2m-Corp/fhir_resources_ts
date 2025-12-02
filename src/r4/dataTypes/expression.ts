@@ -11,4 +11,14 @@ export class Expression {
     constructor(data: Expression) {
         Object.assign(this, data);
     }
+
+    toJson(): Record<string, any> {
+        return {
+            ...this,
+        };
+    }
+
+    toXml(): String {
+        return `<Expression>${JSON.stringify(this)}</Expression>`;
+    }
 }

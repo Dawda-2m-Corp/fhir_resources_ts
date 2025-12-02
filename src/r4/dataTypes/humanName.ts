@@ -28,4 +28,37 @@ export class HumanName {
 
         return result;
     }
+
+    toXml(): string {
+        let xml = `<HumanName>`;
+        if (this.use !== undefined) {
+            xml += `<use>${this.use}</use>`;
+        }
+        if (this.text !== undefined) {
+            xml += `<text>${this.text}</text>`;
+        }
+        if (this.family !== undefined) {
+            xml += `<family>${this.family}</family>`;
+        }
+        if (this.given !== undefined) {
+            this.given.forEach(given => {
+                xml += `<given>${given}</given>`;
+            });
+        }
+        if (this.prefix !== undefined) {
+            this.prefix.forEach(prefix => {
+                xml += `<prefix>${prefix}</prefix>`;
+            });
+        }
+        if (this.suffix !== undefined) {
+            this.suffix.forEach(suffix => {
+                xml += `<suffix>${suffix}</suffix>`;
+            });
+        }
+        if (this.period !== undefined) {
+            xml += `<period>${this.period.toXml()}</period>`;
+        }
+        xml += `</HumanName>`;
+        return xml;
+    }
 }

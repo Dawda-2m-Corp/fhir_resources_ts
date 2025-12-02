@@ -24,5 +24,8 @@ export class Quantity {
         return result;
     }
 
+    toXml(): String {
+        return `<Quantity>${JSON.stringify(this)}</Quantity>`;
+    }
 
 }

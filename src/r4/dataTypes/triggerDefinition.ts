@@ -3,7 +3,7 @@ import { Reference } from "../reference";
 import { CodeableConcept } from "./codeableConcept";
 import { DataRequirement } from "./dataRequirement";
 import { Expression } from "./expression";
-import { TIming } from "./timing";
+import { Timing } from "./timing";
 
 
 export class TriggerDefinition {
@@ -11,7 +11,7 @@ export class TriggerDefinition {
     name?: FhirString;
     code?: CodeableConcept;
     subscriptionTopic?: FhirCanonical;
-    timingTiming?: TIming;
+    timingTiming?: Timing;
     timingReference?: Reference;
     timingDate?: FhirDate;
     timingDateTime?: FhirDateTime;
