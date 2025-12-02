@@ -11,7 +11,9 @@
  */
 
 
-export * from './r4/index'
+export * as r4 from './r4/index'
+export * as r4b from './r4b/index'
+export * as r5 from './r5/index'
 
 export const VERSION = '2.0.0';
 export const FHIR_VERSION = 'R4';
