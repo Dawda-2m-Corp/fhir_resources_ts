@@ -316,7 +316,7 @@ export class CarePlan extends BaseFhirResource {
             });
         }
         if (this.activity !== undefined) {
-            this.activity.forEach(activity => {
+            this.activity.forEach(_activity => {
                 xml += `<activity>`;
                 // XML serialization for activity would go here
                 xml += `</activity>`;

@@ -1,25 +1,27 @@
 import * as t from 'io-ts';
 import { fhirRegexValidator } from '../../utils';
 
-export const fhirInterRegexPatternType = fhirRegexValidator(/[0]|[-+]?[1-9][0-9]*/, 'Invalid FHIR integer format');
-export const fhirStringRegexPatternType = fhirRegexValidator(/[ \r\n\t\S]+/, 'Invalid FHIR string format');
-export const fhirDecimalRegexPatternType = fhirRegexValidator(/-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?/, 'Invalid FHIR decimal format');
-export const fhirUriRegexPatternType = fhirRegexValidator(/\S*/, 'Invalid FHIR uri format');
-export const fhirBase64BinaryRegexPatternType = fhirRegexValidator(/(\s*([0-9a-zA-Z\+\=]){4}\s*)+/, 'Invalid FHIR base64Binary format');
-export const fhirInstantRegexPatternType = fhirRegexValidator(
+type FhirRegexType = t.BrandC<t.StringC, { readonly Pattern: unique symbol }>;
+
+export const fhirInterRegexPatternType: FhirRegexType = fhirRegexValidator(/[0]|[-+]?[1-9][0-9]*/, 'Invalid FHIR integer format');
+export const fhirStringRegexPatternType: FhirRegexType = fhirRegexValidator(/[ \r\n\t\S]+/, 'Invalid FHIR string format');
+export const fhirDecimalRegexPatternType: FhirRegexType = fhirRegexValidator(/-?(0|[1-9][0-9]*)(\.[0-9]+)?([eE][+-]?[0-9]+)?/, 'Invalid FHIR decimal format');
+export const fhirUriRegexPatternType: FhirRegexType = fhirRegexValidator(/\S*/, 'Invalid FHIR uri format');
+export const fhirBase64BinaryRegexPatternType: FhirRegexType = fhirRegexValidator(/(\s*([0-9a-zA-Z\+\=]){4}\s*)+/, 'Invalid FHIR base64Binary format');
+export const fhirInstantRegexPatternType: FhirRegexType = fhirRegexValidator(
     /([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)-(0[1-9]|1[0-2])-(0[1-9]|[1-2][0-9]|3[0-1])T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00))/,
     'Invalid FHIR instant format');
-export const fhirCodeRegexPatternType = fhirRegexValidator(/[^\s]+(\s[^\s]+)*/, 'Invalid FHIR code format');
-export const fhirDateRegexPatternType = fhirRegexValidator(/([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?/, 'Invalid FHIR date format');
-export const fhirDateTimeRegexPatternType = fhirRegexValidator(
+export const fhirCodeRegexPatternType: FhirRegexType = fhirRegexValidator(/[^\s]+(\s[^\s]+)*/, 'Invalid FHIR code format');
+export const fhirDateRegexPatternType: FhirRegexType = fhirRegexValidator(/([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1]))?)?/, 'Invalid FHIR date format');
+export const fhirDateTimeRegexPatternType: FhirRegexType = fhirRegexValidator(
     /([0-9]([0-9]([0-9][1-9]|[1-9]0)|[1-9]00)|[1-9]000)(-(0[1-9]|1[0-2])(-(0[1-9]|[1-2][0-9]|3[0-1])(T([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?(Z|(\+|-)((0[0-9]|1[0-3]):[0-5][0-9]|14:00)))?)?)?/,
     'Invalid FHIR dateTime format');
-export const fhirIdRegexPatternType = fhirRegexValidator(/urn:oid:[0-2](\.(0|[1-9][0-9]*))+/, 'Invalid FHIR id format');
-export const fhirOidRegexPatternType = fhirRegexValidator(/urn:oid:[0-2](\.(0|[1-9][0-9]*))+/, 'Invalid FHIR oid format');
-export const fhirMakeDownRegexPatternType = fhirRegexValidator(/[\s\S]*/, 'Invalid FHIR markdown format');
-export const fhirPositiveIntRegexPatternType = fhirRegexValidator(/[+]?([1-9][0-9]*)/, 'Invalid FHIR positiveInt format');
-export const fhirTimeRegexPatternType = fhirRegexValidator(/([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?/, 'Invalid FHIR time format');
-export const fhirUnsignedIntRegexPatternType = fhirRegexValidator(/0|[+]?[1-9][0-9]*/, 'Invalid FHIR unsignedInt format');
+export const fhirIdRegexPatternType: FhirRegexType = fhirRegexValidator(/urn:oid:[0-2](\.(0|[1-9][0-9]*))+/, 'Invalid FHIR id format');
+export const fhirOidRegexPatternType: FhirRegexType = fhirRegexValidator(/urn:oid:[0-2](\.(0|[1-9][0-9]*))+/, 'Invalid FHIR oid format');
+export const fhirMakeDownRegexPatternType: FhirRegexType = fhirRegexValidator(/[\s\S]*/, 'Invalid FHIR markdown format');
+export const fhirPositiveIntRegexPatternType: FhirRegexType = fhirRegexValidator(/[+]?([1-9][0-9]*)/, 'Invalid FHIR positiveInt format');
+export const fhirTimeRegexPatternType: FhirRegexType = fhirRegexValidator(/([01][0-9]|2[0-3]):[0-5][0-9]:([0-5][0-9]|60)(\.[0-9]+)?/, 'Invalid FHIR time format');
+export const fhirUnsignedIntRegexPatternType: FhirRegexType = fhirRegexValidator(/0|[+]?[1-9][0-9]*/, 'Invalid FHIR unsignedInt format');
 
 export type FhirNull = null;
 export type FhirOid = t.TypeOf<typeof fhirOidRegexPatternType>;
