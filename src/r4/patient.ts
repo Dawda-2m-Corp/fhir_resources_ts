@@ -89,7 +89,7 @@ export class PatientLink {
 
 export class Patient extends BaseFhirResource {
     resourceType: FhirResourceTypes = "Patient";
-    identifer?: Identifier[];
+    identifier?: Identifier[];
     active?: FhirBoolean;
     name?: HumanName[];
     telecom?: ContactPoint[];
