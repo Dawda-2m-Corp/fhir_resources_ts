@@ -1,4 +1,4 @@
-import { FhirString } from '.';
+// No imports needed currently
 import { Coding } from './coding';
 import { ExtendedContactDetail } from './extendedContactDetail';
 

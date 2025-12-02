@@ -1,5 +1,5 @@
 import { BaseFhirResource } from "./baseResource";
-import { FhirBoolean, FhirCode, FhirDateTime, FhirPositiveInt, FhirResourceTypes, FhirString } from "./dataTypes";
+import { FhirBoolean, FhirCode, FhirPositiveInt, FhirResourceTypes, FhirString } from "./dataTypes";
 import { CodeableConcept } from "./dataTypes/codeableConcept";
 import { Money } from "./dataTypes/money";
 import { Period } from "./dataTypes/period";

@@ -4,11 +4,6 @@ import { Reference } from './reference';
 import { CodeableConcept } from './dataTypes/codeableConcept';
 import { Period } from './dataTypes/period';
 import {
-    FhirCode,
-    FhirDateTime,
-    FhirString,
-    FhirDate,
-    FhirPositiveInt,
     FhirResourceTypes
 } from './dataTypes';
 
