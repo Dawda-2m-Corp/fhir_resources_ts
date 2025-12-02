@@ -1,11 +1,13 @@
 
 import { Address } from '../r4/dataTypes/address';
 import { Period } from '../r4/dataTypes/period';
+import { Extension } from './extension';
 import { BaseFhirResource, FhirCode, Patient as PatientR4B } from '../r4b/index'
 
 
 
 export class Patient extends PatientR4B {
+    extension?: Extension[] | undefined;
     birthPlace?: Address;
     effectivePeriod?: Period;
     assurance?: FhirCode;
